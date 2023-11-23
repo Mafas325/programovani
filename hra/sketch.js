@@ -5,8 +5,8 @@ const enemySize = 30;
 
 var player;
 
-var enemy;
-
+var enemy1;
+var enemy2;
 function setup() {
     createCanvas(800, 600);
 
@@ -16,9 +16,11 @@ function setup() {
     // na náhodné pozici, ale vždycky stejně daleko od hráče
     const r = min(width, height)/2 * 0.75;
     const a = random(2*PI);
-    enemy = createVector(r*cos(a), r*sin(a));
+    var enemy = createVector(r*cos(a), r*sin(a));
     enemy.add(player);
     //
+    enemy1 = new Enemy(enemy)
+    enemy2 = new Enemy(createVector())
 }
 
 function draw() {
@@ -34,7 +36,8 @@ function draw() {
 
     fill(255);
     circle(player.x, player.y, playerSize);
+    enemy1.update()
+    enemy2.update()
+    
 
-    fill(255, 0, 0);
-    circle(enemy.x, enemy.y, enemySize);
 }
