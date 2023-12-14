@@ -16,8 +16,29 @@ function setup() {
 //      while(cond) - opakuje něco dokud platí podmínka cond (funguje podobně jako for)
 // Tip - můžete vždy najít nejmenší číslo v seznamu, smazat ho a přidat ho do nového seznamu,
 // nový seznam bude potom obsahovat stejná čísla jako původní, ale ve správněm pořadí
+
+
+
+function findMin(list) {
+    var nejmenší_číslo = list[0]
+    for(let i = 0; i < list.length; i++){
+        if (nejmenší_číslo>list[i]){nejmenší_číslo=list[i]}
+    }
+    return nejmenší_číslo
+}
+
+
+
 function mySort(list) {
-    return list
+    var sorted = []
+    var x = list.length
+    for(let a = 0; a < x; a++){
+        let min = findMin(list)
+        sorted.push(min)
+        list.splice(list.indexOf(min), 1)       
+    }
+    
+    return sorted
 }
 
 
