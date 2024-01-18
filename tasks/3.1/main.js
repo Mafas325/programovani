@@ -10,5 +10,5 @@
 //      createVector(x, y)
 
 class Rigidbody {
-    
+    new Rigidbody(100, 200)
 }
