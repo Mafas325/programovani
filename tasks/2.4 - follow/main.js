@@ -15,7 +15,9 @@
 //      - vector.sub(v) - odečte od vektoru vektor v
 //      - vector.setMag(x) - nastaví délku vektoru na x
 function follow(object, target) {
-    let dir = createVector(1, 0);
-    object.add(dir);
+    let dir = createVector();
+    dir = p5.Vector.sub(target, object)
+    dir.setMag(3)
+    object.add(dir);   
     return object;
 }
