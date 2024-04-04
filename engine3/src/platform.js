@@ -3,6 +3,7 @@ class Mooving_platform extends Component {
 
 
     start() {
+        this.rb = this.getComponent(Rigidbody)
         this.cíl_platform = this.gameObject.pos.x + 100
         this.start_platform = this.gameObject.pos.x
         this.doprava = true
@@ -11,14 +12,12 @@ class Mooving_platform extends Component {
 
     update() {
 
-        if ( this.gameObject.pos.x < this.cíl_platform && this.doprava == true) {
-            this.gameObject.pos.x++
+        if (this.gameObject.pos.x < this.cíl_platform / 2) {
+            this.rb.vel.x++
         }
-        else { this.doprava = false }
-        if (this.gameObject.pos.x > this.start_platform && this.doprava == false) {
-            this.gameObject.pos.x = this.gameObject.pos.x - 1
+        if (this.gameObject.pos.x > this.cíl_platform / 2) {
+            this.rb.vel.x--
+
         }
-        else {this.doprava = true}
-       
     }
 }

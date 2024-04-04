@@ -1,7 +1,7 @@
 class Player extends Component {
     start() {
 
-        this.rb = this.getComponent(DynamicBoxCollider)
+        this.rb = this.getComponent(Rigidbody)
 
         this.onground = 0
 
@@ -20,16 +20,16 @@ class Player extends Component {
 
 
     update() {
-        if (Input.keyPressed("a")) { this.rb.vel.x = -4 }
-        else if (Input.keyPressed("d")) { this.rb.vel.x = 4 }
+        if (Input.keyPressed("a")) { this.rb.vel.x = -240 }
+        else if (Input.keyPressed("d")) { this.rb.vel.x = 240 }
         else this.rb.vel.x = 0
-        if (this.onground == 1) {
-            if (Input.keyJustPressed("w")) this.rb.vel.y = -12
+        if (this.onground == 0) {
+            if (Input.keyJustPressed("w")) this.rb.vel.y = -720
         }
 
         else if (this.onground == 0 && double_jump) {
             if (Input.keyJustPressed("w")) {
-                this.rb.vel.y = -12
+                this.rb.vel.y = -720
                 double_jump = false
             }
         }
