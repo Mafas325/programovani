@@ -10,6 +10,10 @@ class Mooving_platform extends Component {
 
     }
 
+    onCollisionEnter(col){
+        
+    }
+
     update() {
 
         if (this.gameObject.pos.x < this.cíl_platform / 2) {

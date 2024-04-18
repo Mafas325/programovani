@@ -39,7 +39,7 @@ function setup() {
     player = new GameObject(width / 2, height / 2 - 100)
         .addComponent(new Rect(25, 25).setColor(0, 255, 0))
         .addComponent(new ShapeRenderer)
-        .addComponent(new Rigidbody(1, 1))
+        .addComponent(new Rigidbody(1, 1,))
         .addComponent(new Player())
 
     new GameObject(width / 2 + 100, height / 2 + 50)
@@ -61,10 +61,10 @@ function setup() {
     
 
 
-    Platform = new GameObject(700, height / 3)
+    Platform = new GameObject(700, height / 4)
     .addComponent(new Rect(80, 10).setColor(0, 255, 0))
     .addComponent(new ShapeRenderer)
-    .addComponent(new Rigidbody(0, 0))
+    .addComponent(new Rigidbody(0, 0, 10000000))
     .addComponent(new Mooving_platform())
     
 

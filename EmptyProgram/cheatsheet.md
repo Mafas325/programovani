@@ -8,7 +8,7 @@ https://dotnet.microsoft.com/en-us/download
 * definice objektu
     * "návod" jak udělat konkrétní objekt
 
-# Instance
+# InstanceĐ
 * objekt vytvořený z nějaké třídy
 * instanci vytvoříme pomocí klíčového slova `new` a názvu třídy
     * např. `new Player(100, 200);`
