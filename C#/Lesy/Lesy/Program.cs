@@ -11,7 +11,7 @@
                 Solve();
             }
         }
-
+        
         public static void Solve()
         {
             string[] firstLine = Console.ReadLine().Split(' ');
@@ -19,12 +19,17 @@
             int n = int.Parse(firstLine[1]);
             int l = int.Parse(firstLine[2]);
 
+            int[,] les = new int[m, n];
+
             for (int i = 0; i < l; i++)
             {
                 string[] coords = Console.ReadLine().Split(' ');
                 if (coords.Length != 2) throw new Exception("Invalid number of coordinates");
                 int x = int.Parse(coords[0]);
                 int y = int.Parse(coords[1]);
+
+                les[x, y] = 1;
+
             }
         }
     }
