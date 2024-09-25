@@ -1,9 +1,19 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Security.Cryptography.X509Certificates;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace WireWorld
 {
+
+    public enum CellType
+    {
+        Empty,
+        Wire,
+        Head,
+        Tail,
+    }
+
     public class Game : Microsoft.Xna.Framework.Game
     {
         private GraphicsDeviceManager _graphics;
@@ -11,6 +21,7 @@ namespace WireWorld
 
         private Texture2D texture;
 
+        CellType[,] cells;
         public Game()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -24,6 +35,12 @@ namespace WireWorld
             texture.SetData(new Color[] { Color.White });
 
             // TODO: Add your initialization logic here
+
+            cells = new CellType[40, 24];
+
+            cells[8, 6] = CellType.Wire;
+
+
 
             base.Initialize();
         }
@@ -50,8 +67,30 @@ namespace WireWorld
             GraphicsDevice.Clear(Color.CornflowerBlue);
             _spriteBatch.Begin();
 
-            fill = Color.Yellow;
-            DrawRect(100, 100, 200, 50);
+            fill = Color.Green;
+            // DrawRect(100, 100, 200, 50);
+            for (int y = 0; y < 24; y++)
+            {
+                for (int x = 0; x < 40; x++)
+                {
+                    if (cells[x, y] == CellType.Wire)
+                    {
+                        fill = Color.White;
+                    }
+                    else if (cells[x, y] == CellType.Head)
+                    {
+                        fill = Color.Yellow;
+                    }
+                    else if (cells[x, y] == CellType.Tail)
+                    {
+                        fill = Color.Orange;
+                    }
+                    
+                    DrawRect(x * 20, y * 20, 20, 20);
+                    fill = Color.Green;
+                }
+            }
+
 
             // TODO: Add your drawing code here
 
